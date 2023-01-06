@@ -15,10 +15,10 @@ import lombok.SneakyThrows;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
-public class SmartDocument implements Document {
-    public String gcsPath;
-
+public class SmartDocument extends Document {
+    public SmartDocument(String gcsPath){
+        this.gcsPath = gcsPath;
+    }
     @SneakyThrows
     public String parse() {
         List<AnnotateImageRequest> requests = new ArrayList<>();

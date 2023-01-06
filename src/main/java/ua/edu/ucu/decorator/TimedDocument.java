@@ -1,11 +1,12 @@
 package ua.edu.ucu.decorator;
 
 
-public class TimedDocument implements Document {
+public class TimedDocument extends Document {
     private Document document;
 
     public TimedDocument(Document document) {
         this.document = document;
+        this.gcsPath = document.gcsPath;
     }
     @Override
     public String parse() {
