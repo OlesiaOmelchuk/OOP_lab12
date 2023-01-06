@@ -1,12 +1,20 @@
 package ua.edu.ucu.chainofresponsibility;
 
 public class ATM {
-    public static void main(String[] args) {
-        Handler handler50 = new Handler50();
-        Handler handler20 = new Handler20();
-        Handler handler5 = new Handler5();
+    private final Handler handler50;
+    private final Handler handler20;
+    private final Handler handler5;
+
+    public ATM() {
+        handler50 = new Handler50();
+        handler20 = new Handler20();
+        handler5 = new Handler5();
         handler50.setNext(handler20);
         handler20.setNext(handler5);
-        handler50.process(127);
     }
+
+    public void process(int amount) {
+        handler50.process(amount);
+    }
+
 }
